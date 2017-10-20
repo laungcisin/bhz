@@ -1,0 +1,58 @@
+# maven #
+target
+
+logs
+
+# eclipse #
+.settings
+.project
+.classpath
+.log
+
+# windows #
+Thumbs.db
+
+# Mac #
+.DS_Store
+
+# Package Files #
+*.war
+*.ear
+
+# idea #
+.idea
+*.iml
+/bhz-com/target
+/bhz-com/*.iml
+/bhz-parent/target
+/bhz-parent/*.iml
+/bhz-sys/target
+/bhz-sys/*.iml
+/bhz-sys-facade/target
+/bhz-sys-facade/*.iml
+/bhz-sys-service/target
+/bhz-sys-service/*.iml
+plan.txt
+
+*.class
+
+# Package Files #
+*.jar
+
+
+*.bak
+*.tmp
+*.log
+/bin/
+build.sh
+integration-repo
+/build/
+
+# IDEA metadata and output dirs
+*.ipr
+*.iws
+
+/webapp/WEB-INF/classes/
+/webapp/WEB-INF/test-classes/
+/webapp/WEB-INF/target/
+
