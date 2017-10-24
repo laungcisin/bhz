@@ -12,12 +12,12 @@ public class SysUserService implements SysUserFacade {
 
 
 	public void testget() {
-		//http://localhost:8888/bhz-sys-service/sysUserService/testget
+		//http://192.168.100.24:8888/bhz-sys-service/sysUserService/testget
 		System.out.println("测试...get");
 	}
 	
 	public SysUser getUser() {
-		//http://localhost:8888/bhz-sys-service/sysUserService/getUser
+		//http://192.168.100.24:8888/bhz-sys-service/sysUserService/getUser
     	SysUser user = new SysUser();
     	user.setId("1001");
     	user.setName("张三");
@@ -25,7 +25,7 @@ public class SysUserService implements SysUserFacade {
 	}
 
 	public SysUser getUser(Integer id) {
-		//http://localhost:8888/bhz-sys-service/sysUserService/get/1001
+		//http://192.168.100.24:8888/bhz-sys-service/sysUserService/get/1001
 		System.out.println(id);
 		System.out.println("测试...get");
 		SysUser user = new SysUser();
@@ -35,7 +35,7 @@ public class SysUserService implements SysUserFacade {
 	}
 
 	public SysUser getUser(Integer id, String name) {
-		//http://localhost:8888/bhz-sys-service/sysUserService/get/1001/z3
+		//http://192.168.100.24:8888/bhz-sys-service/sysUserService/get/1001/z3
 		System.out.println(id);
 		System.out.println(name);
 		System.out.println("测试...get");

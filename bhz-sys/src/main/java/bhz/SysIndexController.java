@@ -1,11 +1,14 @@
 package bhz;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import bhz.sys.entity.SysUser;
+import bhz.sys.facade.SysUserFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <B>系统名称：</B><BR>
@@ -19,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/sys")
 public class SysIndexController {
+    @Resource
+    private SysUserFacade sysUserFacade;
 
     /**
      * <B>方法名称：</B>系统首页<BR>
@@ -32,7 +37,12 @@ public class SysIndexController {
     @RequestMapping("/index")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView ret = new ModelAndView();
+
+        SysUser sysUser = sysUserFacade.getUser(1);
+        System.out.println(sysUser.getName());
+
         ret.setViewName("sys/sysindex");
+        ret.addObject("object", sysUser);
         return ret;
     }
 
