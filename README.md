@@ -1,3 +1,11 @@
+项目结构讲解：
+    bhz-com：公共模块；
+    bhz-parent：基础模块，maven公共配置；
+    bhz-sys：系统运行支撑模块（Web）项目；
+    bhz-sys-facade：api-interface层，提供entity、interface，外系统通过facade获取服务；
+    bhz-sys-service：facade层的实现，提供数据库等功能访问；
+    
+
 1、
 windows调用linux的zookeeper报超时
 解决方案：
