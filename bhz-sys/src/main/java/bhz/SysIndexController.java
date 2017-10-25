@@ -1,7 +1,7 @@
 package bhz;
 
-import bhz.sys.entity.SysUser;
 import bhz.sys.facade.SysUserFacade;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * <B>系统名称：</B><BR>
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/sys")
 public class SysIndexController {
+
     @Resource
     private SysUserFacade sysUserFacade;
 
@@ -31,18 +33,19 @@ public class SysIndexController {
      *
      * @param request  页面请求
      * @param response 页面响应
-     * @param dataYear 年份
      * @return ModelAndView 模型视图
      */
     @RequestMapping("/index")
-    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView ret = new ModelAndView();
-
-        SysUser sysUser = sysUserFacade.getUser(1);
-        System.out.println(sysUser.getName());
-
+        List<JSONObject> list = this.sysUserFacade.getList();
+        for (JSONObject jsonObject : list) {
+            System.out.println(jsonObject);
+        }
+        System.out.println(this.sysUserFacade.getById("admin"));
+        //FIXME:主键生成方法要修改
+//        System.out.println(this.sysUserFacade.generateKey());
         ret.setViewName("sys/sysindex");
-        ret.addObject("object", sysUser);
         return ret;
     }
 
