@@ -5,7 +5,7 @@
          id="WebApp_ID" version="3.0">
     <display-name>bhz-sys</display-name>
     <welcome-file-list>
-        <welcome-file>login</welcome-file>
+        <welcome-file>sys/index</welcome-file>
     </welcome-file-list>
 
     <!--一个tomcat下如果有多个web项目，最好加webAppRootKey区分每个项目-->
@@ -44,7 +44,7 @@
 
     <servlet-mapping>
         <servlet-name>bhz-sys</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/sys/index</url-pattern>
     </servlet-mapping>
 <!--
     <servlet-mapping>
@@ -56,6 +56,23 @@
         <url-pattern>*.json</url-pattern>
     </servlet-mapping>
 -->
+
+    <filter>
+        <filter-name>GzipFilter</filter-name>
+        <filter-class>bhz.com.util.GzipFilter</filter-class>
+        <init-param>
+            <param-name>headers</param-name>
+            <param-value>Content-Encoding=gzip</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>GzipFilter</filter-name>
+        <url-pattern>*.gzjs</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>GzipFilter</filter-name>
+        <url-pattern>*.gzcss</url-pattern>
+    </filter-mapping>
 
     <session-config>
         <session-timeout>15</session-timeout>
